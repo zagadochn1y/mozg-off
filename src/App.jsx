@@ -1,7 +1,6 @@
 import { useState } from 'react'
 import logo from './images/mind-logo.png'
 import globusIcon from './images/globus-icon.png'
-import mainImage from './images/main-image.png'
 import mainBrainImage from './images/main-brain-image.png'
 import cardImage1 from './images/brainTrain.png'
 import cardImage2 from './images/aiHelper.png'
