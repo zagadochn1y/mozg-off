@@ -2,6 +2,7 @@ import { useState } from 'react'
 import logo from './images/mind-logo.png'
 import globusIcon from './images/globus-icon.png'
 import mainImage from './images/main-image.png'
+import mainBrainImage from './images/main-brain-image.png'
 import cardImage1 from './images/brainTrain.png'
 import cardImage2 from './images/aiHelper.png'
 import cardImage3 from './images/aiGeneration.png'
@@ -90,7 +91,7 @@ function App() {
             Умно.<br/>Навсегда.</h1>
             <button className='start-button'>Начать тренировку</button>
           </div>
-          <img src={mainImage} alt="" className='main-image'/>
+          <img src={mainBrainImage} alt="" className='main-image'/>
         </section>
       </FadeInSection>
 
