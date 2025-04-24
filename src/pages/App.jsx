@@ -11,6 +11,7 @@ import blogBook from '../images/blogBook.png'
 import searchGlass from '../images/glass.png'
 import brainAboutUs from '../images/brainAboutUs.png'
 import teamMember1 from '../images/teamMember1.png'
+import teamMember2 from '../images/teamMember2.jpg'
 import mailIcon from '../images/mail-icon.png'
 import phoneIcon from '../images/phone-icon.png'
 import instagramIcon from '../images/instagram-icon.png'
@@ -201,7 +202,7 @@ function App() {
               <p className='teamRole'>Дизайн и FrontEnd</p>
             </div>
             <div className='teamMember'>
-              <img src='' alt="Maidankhan Adilet" />
+              <img src={teamMember2} alt="Maidankhan Adilet" />
               <p className='teamInicial'>Майданхан Адилет</p>
               <p className='teamRole'>BackEnd и ИИ</p>
             </div>
