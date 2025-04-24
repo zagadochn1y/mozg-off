@@ -1,4 +1,5 @@
 import { useState } from 'react'
+import { Route, Routes, Link } from 'react-router-dom'
 import logo from '../images/mind-logo.png'
 import globusIcon from '../images/globus-icon.png'
 import mainBrainImage from '../images/main-brain-image.png'
@@ -35,45 +36,41 @@ function App() {
   return (
     <div>
       <header className='header'>
-          <a href="#">
+          <Link to="/">
             <img src={logo} alt="logotype" className='logo'/>
-          </a>
+          </Link>
 
           <div className='title-container'>
             <p className='title first'>Мозг</p>
             <p className='title second'>OFF</p>
           </div>
 
-          <nav className='nav'>
-            <ul>
-              <li className='nav-item'>
-                <a href="#">Главная</a>
-              </li>
+          <nav className='nav' id = 'main'>
+              <ul>
+                <li className='nav-item'>
+                  <a href="#main">Главная</a>
+                </li>
 
-              <li className='nav-item'>
-                <a href="#">Тренировки</a>
-              </li>
+                <li className='nav-item'>
+                  <Link to="#">Игры</Link>
+                </li>
 
-              <li className='nav-item'>
-                <a href="#">Игры</a>
-              </li>
+                <li className='nav-item'>
+                  <a href="#">ИИ-помощник</a>
+                </li>
 
-              <li className='nav-item'>
-                <a href="#">ИИ-помощник</a>
-              </li>
+                <li className='nav-item'>
+                  <Link to="/">Личный кабинет</Link>
+                </li>
 
-              <li className='nav-item'>
-                <a href="#">Личный кабинет</a>
-              </li>
+                <li className='nav-item'>
+                  <a href="#blog">Блог</a>
+                </li>
 
-              <li className='nav-item'>
-                <a href="#">Блог</a>
-              </li>
-
-              <li className='nav-item'>
-                <a href="#">О нас</a>
-              </li>
-            </ul>
+                <li className='nav-item'>
+                  <a href="#about-us">О нас</a>
+                </li>
+              </ul>
 
             <div className='nav-buttons'>
               <button className='login-button'>Login</button>
@@ -122,7 +119,7 @@ function App() {
       </FadeInSection>
 
       <FadeInSection>
-        <section className = "blogSection">
+        <section className = "blogSection" id = "blog">
           <div className='blogHeader'>
             <h1 className='blogTitle'>Блог</h1>
             <div className="input-wrapper">
@@ -177,7 +174,7 @@ function App() {
         </section>
       </FadeInSection>
 
-      <section className='about-us'>
+      <section className='about-us' id = "about-us">
         <FadeInSection>
         <h1>О нас</h1>
         </FadeInSection>
