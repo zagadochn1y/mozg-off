@@ -1,5 +1,5 @@
 import React, { useRef, useEffect, useState } from 'react';
-import '../fadeIn.css';
+import '../styles/fadeIn.css';
 
 const FadeInSection = ({ children }) => {
   const ref = useRef();

@@ -1,4 +1,5 @@
-import '../App.css'
+import '../styles/App.css'
+
 import arrowImage from '../images/buttonArrows.png'
 
 function BlogCard({blogImage, blogTitle, blogDescription}) {

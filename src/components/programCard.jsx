@@ -1,4 +1,4 @@
-import '../App.css'
+import '../styles/App.css'
 
 function ProgramCard({ cardImage, cardTitle, cardText }) {
     return (
