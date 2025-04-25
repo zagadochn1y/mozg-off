@@ -28,7 +28,6 @@ const App = () =>
     }, [chatHistory]);
 
     const generateBotResponse = async (history) => {
-        // Добавляем "Думаю над ответом..."
         setChatHistory(prev => [...prev, { role: "model", text: "Думаю над ответом...", typing: true }]);
     
         try {
@@ -63,7 +62,7 @@ const App = () =>
                 if (index >= fullText.length) {
                     clearInterval(interval);
                 }
-            }, 20); // можно ускорить анимацию
+            }, 20);
         } catch (err) {
             console.error("Ошибка при получении ответа от бота:", err);
             setChatHistory(prev => [...prev, {
@@ -79,34 +78,34 @@ const App = () =>
         <>
             <HeaderSection />
             <FadeInSection>
-                <div className="container">
-                    <div className="chatbot-popup">
-                        <div className="chat-header">
-                            <div className="header-info">
-                                <ChatbotIcon />
-                                <h2 className="logo-text">mozgOFF Chatbot</h2>
-                            </div>
-                        </div>
-                        <div className="chat-body" ref={chatBodyRef}>
-                            <div className="message bot-message">
-                                <ChatbotIcon />
-                                <p className="message-text">
-                                    Приветствую тебя!<br /> 
-                                    Я твой ИИ-тренер и помощник!<br />
-                                    Чем могу помочь?
-                                </p>
-                            </div>
-
-                            {chatHistory.map((chat, index) => (
-                                <ChatMessage key={index} chat={chat} />
-                            ))}
-                        </div>
-
-                        <div className="chat-footer">
-                            <ChatForm chatHistory={chatHistory} setChatHistory={setChatHistory} generateBotResponse={generateBotResponse} />
+            <div className="container">
+                <div className="chatbot-popup">
+                    <div className="chat-header">
+                        <div className="header-info">
+                            <ChatbotIcon />
+                            <h2 className="logo-text">mozgOFF Chatbot</h2>
                         </div>
                     </div>
+                    <div className="chat-body" ref={chatBodyRef}>
+                        <div className="message bot-message">
+                            <ChatbotIcon />
+                            <p className="message-text">
+                                Приветствую тебя!<br /> 
+                                Я твой ИИ-тренер и помощник!<br />
+                                Чем могу помочь?
+                            </p>
+                        </div>
+
+                        {chatHistory.map((chat, index) => (
+                            <ChatMessage key={index} chat={chat} />
+                        ))}
+                    </div>
+
+                    <div className="chat-footer">
+                        <ChatForm chatHistory={chatHistory} setChatHistory={setChatHistory} generateBotResponse={generateBotResponse} />
+                    </div>
                 </div>
+            </div>
             </FadeInSection>
             <footer>
                 <div className='footer-container'>

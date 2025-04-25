@@ -18,7 +18,7 @@ const getSequenceLength = (level) => {
 const ColorMemoryGame = () => {
   const [level, setLevel] = useState(null);
   const [sequence, setSequence] = useState([]);
-  const [visibleSequence, setVisibleSequence] = useState([]); // 👈 отдельный массив для показа
+  const [visibleSequence, setVisibleSequence] = useState([]);
   const [userInput, setUserInput] = useState([]);
   const [showChoices, setShowChoices] = useState(false);
   const [status, setStatus] = useState("");
@@ -51,7 +51,6 @@ const ColorMemoryGame = () => {
     setTurn(currentTurn + 1);
     setStatus("Запомни цвета!");
 
-    // Показать поочерёдно
     newSeq.forEach((color, idx) => {
       setTimeout(() => {
         setVisibleSequence(prev => [...prev, color]);

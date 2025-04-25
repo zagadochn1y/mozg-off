@@ -46,10 +46,6 @@ export default function HeaderSection() {
                 </li>
 
                 <li className='nav-item'>
-                  <Link to="/">Личный кабинет</Link>
-                </li>
-
-                <li className='nav-item'>
                     <Link to='/#blog'>Блог</Link>
                 </li>
 
@@ -59,7 +55,6 @@ export default function HeaderSection() {
               </ul>  
 
             <div className='nav-buttons'>
-              <button className='login-button'>Login</button>
               <button className='language-button'>
                 <img src={globusIcon} alt="globus-icon" className='globus-icon'/>
               </button>
