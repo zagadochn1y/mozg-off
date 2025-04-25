@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { Route, Routes, Link } from 'react-router-dom'
+import { useNavigate, useLocation } from 'react-router-dom'
 import logo from '../images/mind-logo.png'
 import globusIcon from '../images/globus-icon.png'
 import mainBrainImage from '../images/main-brain-image.png'
@@ -22,6 +22,7 @@ import facebookIcon from '../images/facebook-icon.png'
 import ProgramCard from '../components/programCard'
 import FadeInSection from '../components/FadeInSection';
 import BlogCard from '../components/blogCard';
+import HeaderSection from '../components/HeaderSection';
 import '../styles/App.css'
 
 
@@ -33,53 +34,24 @@ function App() {
     setValue(e.target.value);
   };
 
+  const location = useLocation();
+  const navigate = useNavigate();
+
+    const goToExerciseAnchor = () => {
+        if (location.pathname === "/") {
+            const main = document.getElementById("main");
+            const blog = document.getElementById("blog");
+            const aboutUs = document.getElementById("about-us");
+
+            if (main) main.scrollIntoView({ behavior: "smooth" })
+            else if (blog) blog.scrollIntoView({ behavior: "smooth" })
+            else if (aboutUs) aboutUs.scrollIntoView({ behavior: "smooth" })
+        }
+    }
+
   return (
     <div>
-      <header className='header'>
-          <Link to="/">
-            <img src={logo} alt="logotype" className='logo'/>
-          </Link>
-
-          <div className='title-container'>
-            <p className='title first'>Мозг</p>
-            <p className='title second'>OFF</p>
-          </div>
-
-          <nav className='nav' id = 'main'>
-              <ul>
-                <li className='nav-item'>
-                  <a href="#main">Главная</a>
-                </li>
-
-                <li className='nav-item'>
-                  <Link to="#">Игры</Link>
-                </li>
-
-                <li className='nav-item'>
-                  <a href="#">ИИ-помощник</a>
-                </li>
-
-                <li className='nav-item'>
-                  <Link to="/">Личный кабинет</Link>
-                </li>
-
-                <li className='nav-item'>
-                  <a href="#blog">Блог</a>
-                </li>
-
-                <li className='nav-item'>
-                  <a href="#about-us">О нас</a>
-                </li>
-              </ul>
-
-            <div className='nav-buttons'>
-              <button className='login-button'>Login</button>
-              <button className='language-button'>
-                <img src={globusIcon} alt="globus-icon" className='globus-icon'/>
-              </button>
-            </div>
-          </nav>
-      </header>
+      <HeaderSection />
       <FadeInSection>
         <section className='main'>
           <div className='main-text'>

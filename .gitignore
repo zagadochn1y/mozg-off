@@ -1,3 +1,7 @@
+# Keys
+.env
+.env.*
+
 # Logs
 logs
 *.log
