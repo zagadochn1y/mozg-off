@@ -1,28 +1,38 @@
-import { useState } from 'react'
-import { useNavigate, useLocation } from 'react-router-dom'
-import logo from '../images/mind-logo.png'
-import globusIcon from '../images/globus-icon.png'
+import { useState , useRef } from 'react'
+import { useNavigate, useLocation , Link} from 'react-router-dom'
+import emailjs from 'emailjs-com';
+
 import mainBrainImage from '../images/main-brain-image.png'
+
 import cardImage1 from '../images/brainTrain.png'
 import cardImage2 from '../images/aiHelper.png'
 import cardImage3 from '../images/aiGeneration.png'
+
 import blogBrain from '../images/blogBrain.png'
 import blogDiet from '../images/blogDiet.png'
 import blogBook from '../images/blogBook.png'
+
 import searchGlass from '../images/glass.png'
+
 import brainAboutUs from '../images/brainAboutUs.png'
+
 import teamMember1 from '../images/teamMember1.png'
 import teamMember2 from '../images/teamMember2.jpg'
+
 import mailIcon from '../images/mail-icon.png'
 import phoneIcon from '../images/phone-icon.png'
 import instagramIcon from '../images/instagram-icon.png'
+
 import twitterIcon from '../images/twitter-icon.png'
 import instagramFooterIcon from '../images/instagram-footer-icon.png'
 import facebookIcon from '../images/facebook-icon.png'
+
 import ProgramCard from '../components/programCard'
-import FadeInSection from '../components/FadeInSection';
 import BlogCard from '../components/blogCard';
+
+import FadeInSection from '../components/FadeInSection';
 import HeaderSection from '../components/HeaderSection';
+
 import '../styles/App.css'
 
 
@@ -35,19 +45,29 @@ function App() {
   };
 
   const location = useLocation();
-  const navigate = useNavigate();
+  
+  const form = useRef();
 
-    const goToExerciseAnchor = () => {
-        if (location.pathname === "/") {
-            const main = document.getElementById("main");
-            const blog = document.getElementById("blog");
-            const aboutUs = document.getElementById("about-us");
+  const sendEmail = (e) => {
+    e.preventDefault();
 
-            if (main) main.scrollIntoView({ behavior: "smooth" })
-            else if (blog) blog.scrollIntoView({ behavior: "smooth" })
-            else if (aboutUs) aboutUs.scrollIntoView({ behavior: "smooth" })
-        }
-    }
+    emailjs.sendForm(
+      'service_rere4yf',
+      'template_2jjptq4',
+      form.current,
+      'iPldoMXt-LHtrsN-k'
+    )
+    .then((result) => {
+      console.log('Message sent:', result.text);
+      alert('Сообщение отправлено!');
+    }, (error) => {
+      console.log('Error:', error.text);
+      alert('Произошла ошибка при отправке.');
+    });
+
+    e.target.reset(); // Очистить форму
+  };
+  
 
   return (
     <div>
@@ -58,7 +78,7 @@ function App() {
             <h1>Прокачай мозг.</h1>
             <h1>Быстро.<br/>
             Умно.<br/>Навсегда.</h1>
-            <button className='start-button'>Начать тренировку</button>
+            <Link to="/games"><button className='start-button'>Начать тренировку</button></Link>
           </div>
           <img src={mainBrainImage} alt="" className='main-image'/>
         </section>
@@ -122,7 +142,8 @@ function App() {
           <BlogCard
             blogImage={blogBrain}
             blogTitle="Как тренировать мозг эффективно"
-            blogDescription="Мозг — это удивительный орган, который отвечает за все мысли, чувства, действия и восприятие людей. Он постоянно адаптируется к новым условиям и задачам. Но можно ли сделать его еще более эффективным, гибким и творческим? Как развивать свой мозг и улучшать его работу? В статье расскажем о нескольких способах, которые помогут вам усилить свои когнитивные способности и раскрыть потенциал вашего ума."          
+            blogDescription="Мозг — это удивительный орган, который отвечает за все мысли, чувства, действия и восприятие людей. Он постоянно адаптируется к новым условиям и задачам. Но можно ли сделать его еще более эффективным, гибким и творческим? Как развивать свой мозг и улучшать его работу? В статье расскажем о нескольких способах, которые помогут вам усилить свои когнитивные способности и раскрыть потенциал вашего ума."
+            blogURL={"https://kirovgrad.bezformata.com/listnews/nastroyka-mozga-na-uspeh/135338512/"}        
           />
           </FadeInSection>
 
@@ -132,6 +153,7 @@ function App() {
             blogTitle="Диета для продуктивной работы"
             blogDescription="Многие специалисты говорят о том, что основа жизни человека – это то, что он есть. Эта идея пришла из древности, но современники активно поддерживают эту точку зрения. Так что нужно понимать, какие продукты питания будут максимально полезны для мозга человека.
             Рацион любого человека включает в себя набор веществ, которые способствуют нормальной работе организма, могут насытить его всем требуемым и дают энергию для нормальной работы. "
+            blogURL={"https://medcollegia.com/statii/kak-produkti-vliyaut-na-mozg/"}  
           />
           </FadeInSection>
 
@@ -139,7 +161,8 @@ function App() {
           <BlogCard
             blogImage={blogBook}
             blogTitle="Лучшие книги для развития мышления"
-            blogDescription="Быть развитым и интеллектуальным человеком желает, пожалуй, каждый, кто стремится к личностному росту и успеху. Особенно это важно в современном мире, где требуется гибкий ум и самые разносторонние знания. Развивать ум и интеллект можно совершенно разными способами, однако одним из самых популярных и эффективных по праву считается чтение книг – интересных и самих по себе развивающих. Эта статья посвящена именно такой литературе."          
+            blogDescription="Быть развитым и интеллектуальным человеком желает, пожалуй, каждый, кто стремится к личностному росту и успеху. Особенно это важно в современном мире, где требуется гибкий ум и самые разносторонние знания. Развивать ум и интеллект можно совершенно разными способами, однако одним из самых популярных и эффективных по праву считается чтение книг – интересных и самих по себе развивающих. Эта статья посвящена именно такой литературе."  
+            blogURL={"https://4brain.ru/blog/brain-books-list/"}      
           />
           </FadeInSection>
 
@@ -173,7 +196,7 @@ function App() {
             <div className='teamMember'>
               <img src={teamMember2} alt="Maidankhan Adilet" />
               <p className='teamInicial'>Майданхан Адилет</p>
-              <p className='teamRole'>BackEnd и ИИ</p>
+              <p className='teamRole'>FrontEnd и ИИ</p>
             </div>
         </div>
         </FadeInSection>
@@ -199,11 +222,11 @@ function App() {
                 </div>
             </div>
             <div className='contact-form'>
-              <form>
-                <input type="text" placeholder='Имя' className='input-name'/>
-                <input type="text" placeholder='Email' className='input-email'/>
-                <textarea placeholder='Сообщение' className='input-message'></textarea>
-                <button className='send-button'>Отправить</button>
+              <form ref={form} onSubmit={sendEmail}>
+                <input type="text" name = "name" placeholder='Имя' className='input-name'/>
+                <input type="text" name = "email" placeholder='Email' className='input-email'/>
+                <textarea name = "message" placeholder='Сообщение' className='input-message'></textarea>
+                <button type="submit" className='send-button'>Отправить</button>
               </form>
             </div>
         </div>

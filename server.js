@@ -14,7 +14,7 @@ if (!apiKey)
 }
 
 const genAI = new GoogleGenerativeAI(apiKey);
-const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro" }); // Исправил название модели
+const model = genAI.getGenerativeModel({ model: "gemini-1.5-pro" });
 
 app.use(express.json());
 app.use(cors());

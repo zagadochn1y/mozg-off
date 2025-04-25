@@ -1,9 +1,18 @@
 import { useState, useEffect, useRef } from "react";
+
 import ChatbotIcon from "./components/ChatbotIcon";
 import ChatForm from "./components/ChatForm";
 import ChatMessage from "./components/ChatMessage";
+
+import FadeInSection from '../../components/FadeInSection';
 import HeaderSection from '../../components/HeaderSection';
+
 import './ChatBotApp.css'
+import '../../styles/App.css'
+
+import twitterIcon from '../../images/twitter-icon.png'
+import instagramFooterIcon from '../../images/instagram-footer-icon.png'
+import facebookIcon from '../../images/facebook-icon.png'
 
 const App = () => 
 {
@@ -69,34 +78,46 @@ const App = () =>
     return (
         <>
             <HeaderSection />
-            <div className="container">
-                <div className="chatbot-popup">
-                    <div className="chat-header">
-                        <div className="header-info">
-                            <ChatbotIcon />
-                            <h2 className="logo-text">mozgOFF Chatbot</h2>
+            <FadeInSection>
+                <div className="container">
+                    <div className="chatbot-popup">
+                        <div className="chat-header">
+                            <div className="header-info">
+                                <ChatbotIcon />
+                                <h2 className="logo-text">mozgOFF Chatbot</h2>
+                            </div>
                         </div>
-                    </div>
-                    <div className="chat-body" ref={chatBodyRef}>
-                        <div className="message bot-message">
-                            <ChatbotIcon />
-                            <p className="message-text">
-                                Приветствую тебя!<br /> 
-                                Я твой ИИ-тренер и помощник!<br />
-                                Чем могу помочь?
-                            </p>
+                        <div className="chat-body" ref={chatBodyRef}>
+                            <div className="message bot-message">
+                                <ChatbotIcon />
+                                <p className="message-text">
+                                    Приветствую тебя!<br /> 
+                                    Я твой ИИ-тренер и помощник!<br />
+                                    Чем могу помочь?
+                                </p>
+                            </div>
+
+                            {chatHistory.map((chat, index) => (
+                                <ChatMessage key={index} chat={chat} />
+                            ))}
                         </div>
 
-                        {chatHistory.map((chat, index) => (
-                            <ChatMessage key={index} chat={chat} />
-                        ))}
-                    </div>
-
-                    <div className="chat-footer">
-                        <ChatForm chatHistory={chatHistory} setChatHistory={setChatHistory} generateBotResponse={generateBotResponse} />
+                        <div className="chat-footer">
+                            <ChatForm chatHistory={chatHistory} setChatHistory={setChatHistory} generateBotResponse={generateBotResponse} />
+                        </div>
                     </div>
                 </div>
-            </div>
+            </FadeInSection>
+            <footer>
+                <div className='footer-container'>
+                  <div className='footer-icons'>
+                    <img src={twitterIcon} alt="twitter icon" />
+                    <img src={instagramFooterIcon} alt="instagram icon" />
+                    <img src={facebookIcon} alt="facebook icon" />
+                  </div>
+                  <p>@2025 МозгOFF. Все права защищены.</p>
+                </div>
+            </footer>
         </>
     );
 };

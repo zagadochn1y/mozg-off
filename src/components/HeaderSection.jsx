@@ -1,12 +1,11 @@
 import { useEffect } from 'react'
-import { useLocation, useNavigate, Link } from 'react-router-dom'
+import { useLocation, Link } from 'react-router-dom'
 import logo from '../images/mind-logo.png'
 import globusIcon from '../images/globus-icon.png'
 import '../styles/App.css'
 
 export default function HeaderSection() {
     const location = useLocation();
-    const navigate = useNavigate();
 
     useEffect(() => {
         if (location.hash) {
@@ -21,13 +20,15 @@ export default function HeaderSection() {
 
     return (
         <header className='header'>
-          <Link to="/">
-            <img src={logo} alt="logotype" className='logo'/>
-          </Link>
+          <div className='header-title'>
+            <Link to="/">
+              <img src={logo} alt="logotype" className='logo'/>
+            </Link>
 
-          <div className='title-container'>
-            <p className='title first'>Мозг</p>
-            <p className='title second'>OFF</p>
+            <div className='title-container'>
+              <p className='title first'>Мозг</p>
+              <p className='title second'>OFF</p>
+            </div>
           </div>
 
           <nav className='nav' id = 'main'>
@@ -37,7 +38,7 @@ export default function HeaderSection() {
                 </li>
 
                 <li className='nav-item'>
-                  <Link to="#">Игры</Link>
+                  <Link to="/games">Игры</Link>
                 </li>
 
                 <li className='nav-item'>
@@ -55,7 +56,7 @@ export default function HeaderSection() {
                 <li className='nav-item'>
                     <Link to='/#about-us'>О нас</Link>
                 </li>
-              </ul>
+              </ul>  
 
             <div className='nav-buttons'>
               <button className='login-button'>Login</button>

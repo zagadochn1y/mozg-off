@@ -5,7 +5,6 @@
   margin: 0;
   padding: 0;
   box-sizing: border-box;
-  font-family: "Inter", serif;
 }
 
 body {
@@ -19,7 +18,8 @@ body {
 
 .chatbot-popup {
   position: relative;
-  width: 420px;
+  margin-top: 120px;
+  width: 450px;
   overflow: hidden;
   background: #fff;
   border-radius: 15px;

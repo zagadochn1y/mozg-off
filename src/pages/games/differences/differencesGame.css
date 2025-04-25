@@ -1,0 +1,47 @@
+.puzzle-container {
+    text-align: center;
+    font-family: Arial, sans-serif;
+    background: #061325;
+    color: white;
+    padding: 20px;
+    margin-top: 50px;
+    min-height: max-content;
+  }
+  
+  .equations {
+    margin: 20px auto;
+    max-width: 400px;
+  }
+  
+  .line {
+    margin: 10px 0;
+    font-size: 24px;
+  }
+  
+  .symbol {
+    margin: 0 5px;
+  }
+  
+  .inputs {
+    margin: 20px 0;
+  }
+  
+  .inputs label {
+    margin: 0 10px;
+  }
+  
+  input[type="number"] {
+    width: 50px;
+    text-align: center;
+  }
+  
+  button {
+    margin-top: 10px;
+    padding: 8px 16px;
+  }
+  
+  .result {
+    margin-top: 20px;
+    font-size: 18px;
+  }
+  

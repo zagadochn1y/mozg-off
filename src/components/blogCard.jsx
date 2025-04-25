@@ -2,16 +2,17 @@ import '../styles/App.css'
 
 import arrowImage from '../images/buttonArrows.png'
 
-function BlogCard({blogImage, blogTitle, blogDescription}) {
+function BlogCard({blogImage, blogTitle, blogDescription, blogURL}) {
     return (
         <div className="blog-card">
             <img src={blogImage} alt='blogImage' className="blog-image" />
             <div className='blog-text'>
                 <h2 className="blog-title">{blogTitle}</h2>
                 <p className="blog-description">{blogDescription}</p>
-                <button className='continue-button'>Читать далее
+                <a href={blogURL}>
+                    <button className='continue-button'>Читать далее
                     <img src={arrowImage} alt="Arrows" className='arrow-image'/>
-                </button>
+                </button></a>
             </div>
         </div>
     );
